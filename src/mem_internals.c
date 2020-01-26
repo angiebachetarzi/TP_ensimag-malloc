@@ -50,7 +50,7 @@ mark_check_and_get_alloc(void *ptr)
     unsigned long *p_64b = (unsigned long *) ptr;
 
     //cast to 8b
-    char *p_8b = (char *) p_64b;
+    char *p_8b = (char *) ptr;
 
     //get size at the beginning
     unsigned long size_init = *(p_64b - 2);
