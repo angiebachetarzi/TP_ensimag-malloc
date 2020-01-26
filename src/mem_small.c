@@ -25,8 +25,6 @@ emalloc_small(unsigned long size)
             //move to the next chunk
             current = current + CHUNKSIZE;
         }
-
-        //*(void **)(p - CHUNKSIZE) = 0;
     }
     
     //get the first chunk of the pool
@@ -41,6 +39,7 @@ emalloc_small(unsigned long size)
 void efree_small(Alloc a) {
     //get the a to the head of the list
     *(void **)a.ptr = arena.chunkpool;
+    
     //update the chunkpool
     arena.chunkpool = a.ptr;
 }
